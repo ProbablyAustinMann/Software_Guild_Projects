@@ -1,0 +1,5 @@
+2018-09-05T11:30:53.899 : createStudent: ID: 0001 | Name: Austin Mann | Cohort: Lou Java 2018
+2018-09-05T11:31:25.211 : createStudent: ID: 0002 | Name: Paul Hargus | Cohort: Java Lou 2018
+2018-09-05T11:35:35.928 : createStudent: ID: 0003 | Name: Sally Jones | Cohort: .NET
+2018-09-05T11:36:08.958 : removeStudent: 0001
+2018-09-05T15:24:39.902 : createStudent: ID: 0011 | Name: Thomas D'Tankengine | Cohort: .NET

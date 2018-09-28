@@ -1,0 +1,16 @@
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/service/DVDLibraryDuplicateTitleException.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/service/DVDLibraryServiceLayerImpl.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/dao/DVDLibraryPersistenceException.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/ui/UserIO.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/service/DVDLibraryServiceLayer.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/dao/DVDLibraryAuditDao.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/advice/LoggingAdvice.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/ui/UserIOConsoleImpl.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/dao/DVDLibraryDao.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/controller/DVDLibraryController.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/dto/DVD.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/ui/DVDLibraryView.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/service/DVDLibraryDataValidationException.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/main/App.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/dao/DVDLibraryDaoFileImpl.java
+/Users/austinmann/NetBeansProjects/DVDLibrary/src/main/java/com/sg/dvdlibrary/dao/DVDLibraryAuditDaoFileImpl.java

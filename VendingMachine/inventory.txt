@@ -1,0 +1,7 @@
+A1 :: Snickers :: 1.40 :: 2
+A2 :: Mars :: 1.20 :: 3
+A3 :: Zero :: 1.10 :: 4
+A4 :: Milky Way :: 1.50 :: 3
+A5 :: Hershey's :: 1.00 :: 5
+A6 :: Heath :: 1.25 :: 5
+A7 :: Juicy Fruit :: 0.75 :: 2

@@ -1,0 +1,2 @@
+2018-09-12T10:11:38.387 : com.sg.vendingmachine.servicelayer.VendingMachineInsufficientFundsException
+2018-09-12T10:15:39.954 : com.sg.vendingmachine.servicelayer.VendingMachineInsufficientFundsException
