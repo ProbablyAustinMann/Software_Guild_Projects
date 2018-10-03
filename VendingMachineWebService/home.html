@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vending Machine</title>
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.css"
+        rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Vending Machine</h1>
+    <hr/>
+    <ul class="list-group" id="errorMessages"></ul>
+
+    <div class="col-md-8">
+<div id='buttons' class='row'>
+
+</div>
+    </div>
+
+    <div class="col-md-4">
+      <div id="moneyIn">
+        <h2>Total $ In</h2>
+        <div class="col-md-8">
+            <input type="text"
+                   class="form-control"
+                   id="moneyInputBox"
+                   placeholder="Total Money" required/>
+                   <button type="button"
+                           id="addDollar"
+                           class="btn btn-default">
+                       Add Dollar
+                   </button>
+                   <button type="button"
+                           id="addQuarter"
+                           class="btn btn-default">
+                       Add Quarter
+                   </button>
+                   <button type="button"
+                           id="addDime"
+                           class="btn btn-default">
+                       Add Dime
+                   </button>
+                   <button type="button"
+                           id="addNickel"
+                           class="btn btn-default">
+                       Add Nickel
+                   </button>
+                   <hr/>
+        </div>
+      </div>
+
+      <div id="messages">
+        <h2>Messages</h2>
+        <div class="col-md-20">
+            <input type="text"
+                   class="form-control"
+                   id="messageBox"/>
+
+                   <div id="item">
+                     <h2>Item:</h2>
+                     <div class="col-md-8">
+                         <input type="text"
+                                class="form-control"
+                                id="itemBox"/>
+                                <button type="button"
+                                        id="makePurchaseButton"
+                                        class="btn btn-default">
+                                    Make Purchase
+                                </button>
+                                <hr/>
+        </div>
+      </div>
+
+      <div id="change">
+        <h2>Change-Box</h2>
+        <div class="col-md-20">
+            <input type="text"
+                   class="form-control"
+                   id="changeBox"/>
+                   <button type="button"
+                           id="returnChangeButton"
+                           class="btn btn-default">
+                       Return Change
+                   </button>
+                   <hr/>
+
+    </div>
+
+  </div>
+
+  <script src="js/jquery-2.2.4.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
