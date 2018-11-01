@@ -298,6 +298,7 @@ public class SuperheroSightingsDaoImlp implements SuperheroSightingsDao {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public List<Hero> getAllHeros() {
         try {
             List<Hero> heroList = jdbcTemplate.query(SQL_SELECT_ALL_HEROS,
@@ -365,6 +366,7 @@ public class SuperheroSightingsDaoImlp implements SuperheroSightingsDao {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public List<Sighting> getAllSightings() {
         try {
             return jdbcTemplate.query(SQL_SELECT_ALL_SIGHTINGS,
@@ -423,6 +425,7 @@ public class SuperheroSightingsDaoImlp implements SuperheroSightingsDao {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public List<Location> getAllLocations() {
         try {
             return jdbcTemplate.query(SQL_SELECT_ALL_LOCATIONS,
@@ -488,6 +491,7 @@ public class SuperheroSightingsDaoImlp implements SuperheroSightingsDao {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public List<Organization> getAllOrganizations() {
         try {
             return jdbcTemplate.query(SQL_SELECT_ALL_ORGANIZATIONS,
@@ -539,6 +543,7 @@ public class SuperheroSightingsDaoImlp implements SuperheroSightingsDao {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public List<Power> getAllPowers() {
         try {
             return jdbcTemplate.query(SQL_SELECT_ALL_POWERS,

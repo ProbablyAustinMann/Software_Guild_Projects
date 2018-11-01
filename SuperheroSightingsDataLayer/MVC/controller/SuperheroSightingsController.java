@@ -433,29 +433,22 @@ public class SuperheroSightingsController {
 
     @RequestMapping(value = "/edithero", method = RequestMethod.POST)
     public String editHero(HttpServletRequest request) {
-        //create new hero
-        Hero newHero = new Hero();
-        //get the id of the hero to be edited...
+        try {
+        //get the string parameter and parse it
         String heroIdParameter = request.getParameter("heroId");
         int heroId = Integer.parseInt(heroIdParameter);
-        //...and set that id to the new hero
-        newHero.setHeroId(heroId);
-        //then use that id to get the old hero
+        //use that id to get the old hero
         Hero oldHero = dao.getHeroById(heroId);
         //if the field has new data, pass that data into the new hero object...
         //...if not, use the old hero to pass the old data into the new hero
         String name = request.getParameter("heroName");
         if (name.length() > 0) {
-            newHero.setHeroName(name);
-        } else {
-            newHero.setHeroName(oldHero.getHeroName());
-        }
+            oldHero.setHeroName(name);
+        } 
         String desc = request.getParameter("heroDescription");
         if (desc.length() > 0) {
-            newHero.setHeroDescription(desc);
-        } else {
-            newHero.setHeroDescription(oldHero.getHeroDescription());
-        }
+            oldHero.setHeroDescription(desc);
+        } 
         String[] selectedPowers = request.getParameterValues("powerList");
 
         if (selectedPowers != null) {
@@ -465,60 +458,46 @@ public class SuperheroSightingsController {
                 Power pow = dao.getPowerById(powerInt);
                 powerList.add(pow);
             }
-            newHero.setPower(powerList);
-        } else {
-            newHero.setPower(oldHero.getPower());
+            oldHero.setPower(powerList);
+        } 
+        //last, update the old hero
+        dao.updateHero(oldHero);
+        } catch (NumberFormatException ex) {
+            return "redirect:viewheroes";
         }
-        //last, delete the old hero...
-        dao.addHero(newHero);
-        //...and add the new one
-        dao.deleteHero(oldHero.getHeroId());
         return "redirect:viewheroes";
     }
 
     @RequestMapping(value = "/editlocation", method = RequestMethod.POST)
     public String editLocation(HttpServletRequest request) {
         try {
-            //create new location
-            Location newLoc = new Location();
-            //get the id of the location to be edited...
+            //get the id of the location to be edited and parse it
             String locationIdParameter = request.getParameter("locationId");
             int locationId = Integer.parseInt(locationIdParameter);
-            //...and set that id to the new location
-            newLoc.setLocationId(locationId);
+
             Location oldLoc = dao.getLocationById(locationId);
             //if the field has new data, pass that data into the new location object...
             //...if not, use the old location to pass the old data into the new location
             String name = request.getParameter("locationName");
             if (name.length() > 0) {
-                newLoc.setLocationName(name);
-            } else {
-                newLoc.setLocationName(oldLoc.getLocationName());
-            }
+                oldLoc.setLocationName(name);
+            } 
             String address = request.getParameter("address");
             if (address.length() > 0) {
-                newLoc.setAddress(address);
-            } else {
-                newLoc.setAddress(oldLoc.getAddress());
+                oldLoc.setAddress(address);
             }
             String latString = request.getParameter("latitude");
             if (latString.length() > 0) {
                 double lat = Double.parseDouble(latString);
-                newLoc.setLatitude(lat);
-            } else {
-                newLoc.setLatitude(oldLoc.getLatitude());
+                oldLoc.setLatitude(lat);
             }
             String lonString = request.getParameter("longitude");
             if (lonString.length() > 0) {
                 double lon = Double.parseDouble(lonString);
-                newLoc.setLongitude(lon);
-            } else {
-                newLoc.setLongitude(oldLoc.getLongitude());
+                oldLoc.setLongitude(lon);
             }
-            //last, delete the old location...
-            dao.addLocation(newLoc);
-            //...and add the new one
-            dao.deleteLocation(oldLoc.getLocationId());
+            //last, update the old location
+            dao.updateLocation(oldLoc);
         } catch (NumberFormatException ex) {
             return "redirect:viewlocations";
         }
@@ -527,41 +506,30 @@ public class SuperheroSightingsController {
 
     @RequestMapping(value = "/editorg", method = RequestMethod.POST)
     public String editOrg(HttpServletRequest request) {
-        //create new organization
-        Organization newOrg = new Organization();
-        //get the id of the organization to be edited...
+        try {
+        //get the organization id and parse it
         String orgIdParameter = request.getParameter("organizationId");
         int orgId = Integer.parseInt(orgIdParameter);
-        //...and set that id to the new organization
-        newOrg.setOrganizationId(orgId);
         Organization oldOrg = dao.getOrganizationById(orgId);
         //if the field has new data, pass that data into the new organization object...
         //...if not, use the old organization to pass the old data into the new organization
         String name = request.getParameter("orgName");
         if (name.length() > 0) {
-            newOrg.setOrgName(name);
-        } else {
-            newOrg.setOrgName(oldOrg.getOrgName());
+            oldOrg.setOrgName(name);
         }
         String loc = request.getParameter("location");
         if (loc != null) {
             int locationInt = Integer.parseInt(loc);
             Location orgLoc = dao.getLocationById(locationInt);
-            newOrg.setLocation(orgLoc);
-        } else {
-            newOrg.setLocation(oldOrg.getLocation());
+            oldOrg.setLocation(orgLoc);
         }
         String phone = request.getParameter("phone");
         if (phone.length() > 0) {
-            newOrg.setPhone(phone);
-        } else {
-            newOrg.setPhone(oldOrg.getPhone());
+            oldOrg.setPhone(phone);
         }
         String email = request.getParameter("email");
         if (email.length() > 0) {
-            newOrg.setEmail(email);
-        } else {
-            newOrg.setEmail(oldOrg.getEmail());
+            oldOrg.setEmail(email);
         }
         String[] selectedHeroes = request.getParameterValues("orgHero");
         if (selectedHeroes != null) {
@@ -571,52 +539,43 @@ public class SuperheroSightingsController {
                 Hero hero = dao.getHeroById(heroInt);
                 heroList.add(hero);
             }
-            newOrg.setOrgHero(heroList);
-        } else {
-            newOrg.setOrgHero(oldOrg.getOrgHero());
+            oldOrg.setOrgHero(heroList);
         }
-        //last, delete the old organization...
-        dao.addOrganization(newOrg);
-        //...and add the new one
-        dao.deleteOrganization(oldOrg.getOrganizationId());
+        //last, edit the old organization
+        dao.updateOrganization(oldOrg);
+        } catch (NumberFormatException ex) {
+            return "redirect:viewlocations";
+        }
         return "redirect:vieworgs";
     }
 
     @RequestMapping(value = "/editpower", method = RequestMethod.POST)
     public String editPower(HttpServletRequest request) {
-        //create new power
-        Power newPow = new Power();
-        //get the id of the power to be edited...
+        try {
+        //get the power id and parse it
         String powerIdParameter = request.getParameter("powerId");
         int powerId = Integer.parseInt(powerIdParameter);
-        //...and set that id to the new power
-        newPow.setPowerId(powerId);
         Power oldPow = dao.getPowerById(powerId);
         //if the field has new data, pass that data into the new power object...
         //...if not, use the old power to pass the old data into the new power
         String desc = request.getParameter("powerDescription");
         if (desc.length() > 0) {
-            newPow.setPowerDescription(desc);
-        } else {
-            newPow.setPowerDescription(oldPow.getPowerDescription());
+            oldPow.setPowerDescription(desc);
         }
-        //last, delete the old power...
-        dao.addPower(newPow);
-        //...and add the new one
-        dao.deletePower(oldPow.getPowerId());
+        //last, edit the old power
+        dao.updatePower(oldPow);
+        } catch (NumberFormatException ex) {
+            return "redirect:viewlocations";
+        }
         return "redirect:viewpowers";
     }
 
     @RequestMapping(value = "/editsighting", method = RequestMethod.POST)
     public String editSighting(HttpServletRequest request) {
         try {
-            //create new sighting
-            Sighting newSight = new Sighting();
-            //get the id of the sighting to be edited...
+            //get the sighting id and parse it
             String sightingIdParameter = request.getParameter("sightingId");
             int sightingId = Integer.parseInt(sightingIdParameter);
-            //...and set that id to the new sighting
-            newSight.setSightingId(sightingId);
             Sighting oldSight = dao.getSightingById(sightingId);
             //if the field has new data, pass that data into the new sighting object...
             //...if not, use the old sighting to pass the old data into the new sighting
@@ -624,22 +583,16 @@ public class SuperheroSightingsController {
             if (loc != null) {
                 int locationInt = Integer.parseInt(loc);
                 Location sightLoc = dao.getLocationById(locationInt);
-                newSight.setLocation(sightLoc);
-            } else {
-                newSight.setLocation(oldSight.getLocation());
+                oldSight.setLocation(sightLoc);
             }
             String date = request.getParameter("date");
             if (date.length() > 0) {
                 LocalDate localDate = LocalDate.parse(date);
-                newSight.setDate(localDate);
-            } else {
-                newSight.setDate(oldSight.getDate());
+                oldSight.setDate(localDate);
             }
             String desc = request.getParameter("sightingDescription");
             if (desc.length() > 0) {
-                newSight.setSightingDescription(desc);
-            } else {
-                newSight.setSightingDescription(oldSight.getSightingDescription());
+                oldSight.setSightingDescription(desc);
             }
             String[] selectedHeroes = request.getParameterValues("sightingHero");
             if (selectedHeroes != null) {
@@ -649,15 +602,11 @@ public class SuperheroSightingsController {
                     Hero hero = dao.getHeroById(heroInt);
                     heroList.add(hero);
                 }
-                newSight.setSightingHero(heroList);
-            } else {
-                newSight.setSightingHero(oldSight.getSightingHero());
+                oldSight.setSightingHero(heroList);
             }
-            //last, delete the old sighting...
-            dao.addSighting(newSight);
-            //...and add the new one
-            dao.deleteSighting(oldSight.getSightingId());
-        } catch (DateTimeParseException ex) {
+            //last, update the old sighting
+            dao.updateSighting(oldSight);
+        } catch (DateTimeParseException | NumberFormatException ex) {
             return "redirect:viewsightings";
         }
         return "redirect:viewsightings";
