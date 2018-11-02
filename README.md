@@ -7,8 +7,13 @@ Various different projects from my time at the Software Guild
 Java
 
 HTML
+
 CSS
+
 Bootstrap Framework
+
 Spring MVC
+
 MySQL
+
 JQuery
