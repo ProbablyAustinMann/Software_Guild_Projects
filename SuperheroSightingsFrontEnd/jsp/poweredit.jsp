@@ -39,7 +39,7 @@
             </table>
         </div>
         <div class="col-md-6">
-            <h2 class="text-center">Add New Power</h2>
+            <h2 class="text-center">Edit <c:out value="${poweredit.getPowerDescription()}"/></h2>
             <form class="form-horizontal" 
                   role="form" method="POST" 
                   action="editpower">

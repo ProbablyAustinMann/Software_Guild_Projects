@@ -32,7 +32,7 @@
                     <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/viewsightings">Sightings</a></li>
                 </ul>    
             </div>
-            <h2 class="text-center">Registered Sightings</h2>
+            <h2 class="text-center"><c:out value="${sightingInfo.getSightingDescription()}"/></h2>
             <div>
                 <p>
                     <b>Location:</b> <c:out value="${sightingInfo.getLocation().getLocationName()}"/><br/>

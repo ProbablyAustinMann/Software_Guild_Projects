@@ -10,7 +10,7 @@
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <h1 class="text-center">Edit Organization</h1>
+        <h1 class="text-center">Edit <c:out value="${orgedit.getOrgName()}"/></h1>
             <hr/>
             <div class="navbar">
                 <ul class="nav nav-tabs">
