@@ -68,7 +68,8 @@ public class FlooringMasteryView {
         String date = io.readString("Enter date");
         String customerName = io.readString("Enter customer name");
         double area = io.readDouble("Enter area");
-        Order newOrder = new Order(orderNumber);
+        Order newOrder = new Order();
+        newOrder.setOrderNumber(orderNumber);
         newOrder.setState(nameOfState);
         newOrder.setProduct(nameOfProduct);
         newOrder.setDate(date);
@@ -96,7 +97,8 @@ public class FlooringMasteryView {
     public Order editOrder() throws
         FlooringMasteryPersistenceException {
         String orderNumber = getNumber();
-        Order editedOrder = new Order(orderNumber);
+        Order editedOrder = new Order();
+        editedOrder.setOrderNumber(orderNumber);
           String stateName = io.readString("Enter state (OH, PA, MI, IN)");
           State nameOfState = new State(stateName.toUpperCase());
           if (stateName != null) {

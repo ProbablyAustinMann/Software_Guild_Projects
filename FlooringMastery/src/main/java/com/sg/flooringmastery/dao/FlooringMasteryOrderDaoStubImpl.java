@@ -23,7 +23,8 @@ public class FlooringMasteryOrderDaoStubImpl implements FlooringMasteryOrderDao 
     List<Order> orderList = new ArrayList<>();
     
     public FlooringMasteryOrderDaoStubImpl() {
-        onlyOrder = new Order("000001");
+        onlyOrder = new Order();
+        onlyOrder.setOrderNumber("000001");
         State state = new State("OH");
         Product product = new Product("Tile");
         onlyOrder.setState(state);

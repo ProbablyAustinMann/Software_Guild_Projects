@@ -10,7 +10,6 @@ import com.sg.flooringmastery.dao.FlooringMasteryPersistenceException;
 import com.sg.flooringmastery.dao.FlooringMasteryProductDao;
 import com.sg.flooringmastery.dao.FlooringMasteryStateDao;
 import com.sg.flooringmastery.dto.Order;
-import com.sg.flooringmastery.ui.FlooringMasteryView;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

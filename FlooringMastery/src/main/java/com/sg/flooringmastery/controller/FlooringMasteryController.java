@@ -115,7 +115,8 @@ public class FlooringMasteryController {
         view.displayRemoveOrderBanner();
         String date = view.getDate();
         String number = view.getNumber();
-        Order orderNumber = new Order(number);
+        Order orderNumber = new Order();
+        orderNumber.setOrderNumber(number);
         service.removeOrder(orderNumber, date);
         view.displayRemoveSuccessBaner();
     }
@@ -130,7 +131,8 @@ public class FlooringMasteryController {
         do {
             String date = view.getDate();
             String number = view.getNumber();
-            Order orderNumber = new Order(number);
+            Order orderNumber = new Order();
+            orderNumber.setOrderNumber(number);
             try {
                 orderNumber = view.editOrder();
                 Order checkedOrder = service.checkForValidData(orderNumber);

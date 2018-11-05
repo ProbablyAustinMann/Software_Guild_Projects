@@ -112,7 +112,8 @@ public class FlooringMasteryOrderDaoFileImpl implements FlooringMasteryOrderDao 
 
                 currentLine = scanner.nextLine();
                 currentTokens = currentLine.split(DELIMITER);
-                Order currentOrder = new Order(currentTokens[0]);
+                Order currentOrder = new Order();
+                currentOrder.setOrderNumber(currentTokens[0]);
                 currentOrder.setCustomerName(currentTokens[1]);
                 currentOrder.setState(new State(currentTokens[2]));
                 currentOrder.getState().setTaxRate(new BigDecimal(currentTokens[3]));
