@@ -8,6 +8,7 @@
         <title>Sighting Information</title>
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
         <style>
             tr:nth-child(even) {
                 background-color:peachpuff;
